@@ -1,0 +1,301 @@
+{
+  "command": "check",
+  "success": true,
+  "assessment": {
+    "workspace": {
+      "id": "governance-demo-cli-typescript-adapter",
+      "name": "governance-demo-cli-typescript-adapter",
+      "root": ".",
+      "projects": [
+        {
+          "id": "shared-kernel",
+          "name": "shared-kernel",
+          "root": "packages/shared-kernel",
+          "type": "unknown",
+          "tags": [
+            "domain:shared",
+            "layer:domain"
+          ],
+          "domain": "shared",
+          "layer": "domain",
+          "ownership": {
+            "source": "none"
+          },
+          "metadata": {}
+        }
+      ],
+      "dependencies": []
+    },
+    "profile": "Anarchitecture TypeScript Workspace Demo",
+    "warnings": [],
+    "exceptions": {
+      "summary": {
+        "declaredCount": 0,
+        "matchedCount": 0,
+        "suppressedPolicyViolationCount": 0,
+        "suppressedConformanceFindingCount": 0,
+        "unusedExceptionCount": 0,
+        "activeExceptionCount": 0,
+        "staleExceptionCount": 0,
+        "expiredExceptionCount": 0,
+        "reactivatedPolicyViolationCount": 0,
+        "reactivatedConformanceFindingCount": 0
+      },
+      "used": [],
+      "unused": [],
+      "suppressedFindings": [],
+      "reactivatedFindings": []
+    },
+    "violations": [
+      {
+        "id": "shared-kernel-ownership",
+        "ruleId": "ownership-presence",
+        "project": "shared-kernel",
+        "severity": "warning",
+        "category": "ownership",
+        "message": "Project shared-kernel has no ownership metadata or CODEOWNERS mapping.",
+        "recommendation": "Add ownership metadata in project configuration or ensure CODEOWNERS covers the project root."
+      }
+    ],
+    "measurements": [
+      {
+        "id": "architectural-entropy",
+        "name": "Architectural Entropy",
+        "family": "architecture",
+        "value": 0,
+        "score": 100,
+        "maxScore": 100,
+        "unit": "ratio"
+      },
+      {
+        "id": "dependency-complexity",
+        "name": "Dependency Complexity",
+        "family": "architecture",
+        "value": 0,
+        "score": 100,
+        "maxScore": 100,
+        "unit": "ratio"
+      },
+      {
+        "id": "domain-integrity",
+        "name": "Domain Integrity",
+        "family": "boundaries",
+        "value": 0,
+        "score": 100,
+        "maxScore": 100,
+        "unit": "ratio"
+      },
+      {
+        "id": "ownership-coverage",
+        "name": "Ownership Coverage",
+        "family": "ownership",
+        "value": 0,
+        "score": 0,
+        "maxScore": 100,
+        "unit": "ratio"
+      },
+      {
+        "id": "documentation-completeness",
+        "name": "Documentation Completeness",
+        "family": "documentation",
+        "value": 0,
+        "score": 0,
+        "maxScore": 100,
+        "unit": "ratio"
+      },
+      {
+        "id": "layer-integrity",
+        "name": "Layer Integrity",
+        "family": "boundaries",
+        "value": 0,
+        "score": 100,
+        "maxScore": 100,
+        "unit": "ratio"
+      }
+    ],
+    "signalBreakdown": {
+      "total": 1,
+      "bySource": [
+        {
+          "source": "graph",
+          "count": 0
+        },
+        {
+          "source": "conformance",
+          "count": 0
+        },
+        {
+          "source": "policy",
+          "count": 1
+        },
+        {
+          "source": "extension",
+          "count": 0
+        }
+      ],
+      "byType": [
+        {
+          "type": "ownership-gap",
+          "count": 1
+        }
+      ],
+      "bySeverity": [
+        {
+          "severity": "info",
+          "count": 0
+        },
+        {
+          "severity": "warning",
+          "count": 1
+        },
+        {
+          "severity": "error",
+          "count": 0
+        }
+      ]
+    },
+    "metricBreakdown": {
+      "families": [
+        {
+          "family": "architecture",
+          "score": 100,
+          "measurements": [
+            {
+              "id": "architectural-entropy",
+              "name": "Architectural Entropy",
+              "score": 100
+            },
+            {
+              "id": "dependency-complexity",
+              "name": "Dependency Complexity",
+              "score": 100
+            }
+          ]
+        },
+        {
+          "family": "boundaries",
+          "score": 100,
+          "measurements": [
+            {
+              "id": "domain-integrity",
+              "name": "Domain Integrity",
+              "score": 100
+            },
+            {
+              "id": "layer-integrity",
+              "name": "Layer Integrity",
+              "score": 100
+            }
+          ]
+        },
+        {
+          "family": "ownership",
+          "score": 0,
+          "measurements": [
+            {
+              "id": "ownership-coverage",
+              "name": "Ownership Coverage",
+              "score": 0
+            }
+          ]
+        },
+        {
+          "family": "documentation",
+          "score": 0,
+          "measurements": [
+            {
+              "id": "documentation-completeness",
+              "name": "Documentation Completeness",
+              "score": 0
+            }
+          ]
+        }
+      ]
+    },
+    "topIssues": [
+      {
+        "type": "ownership-gap",
+        "source": "policy",
+        "severity": "warning",
+        "count": 1,
+        "projects": [
+          "shared-kernel"
+        ],
+        "ruleId": "ownership-presence",
+        "message": "Project shared-kernel has no ownership metadata or CODEOWNERS mapping."
+      }
+    ],
+    "health": {
+      "score": 67,
+      "status": "critical",
+      "grade": "D",
+      "hotspots": [
+        "Documentation Completeness",
+        "Ownership Coverage"
+      ],
+      "metricHotspots": [
+        {
+          "id": "documentation-completeness",
+          "name": "Documentation Completeness",
+          "score": 0
+        },
+        {
+          "id": "ownership-coverage",
+          "name": "Ownership Coverage",
+          "score": 0
+        }
+      ],
+      "projectHotspots": [
+        {
+          "project": "shared-kernel",
+          "count": 1,
+          "dominantIssueTypes": [
+            "ownership-gap"
+          ]
+        }
+      ],
+      "explainability": {
+        "summary": "Critical health at 67. Weakest metrics are Documentation Completeness, Ownership Coverage, Architectural Entropy. Dominant issue types are ownership-gap.",
+        "statusReason": "Score 67 is below the warning threshold (70).",
+        "weakestMetrics": [
+          {
+            "id": "documentation-completeness",
+            "name": "Documentation Completeness",
+            "score": 0
+          },
+          {
+            "id": "ownership-coverage",
+            "name": "Ownership Coverage",
+            "score": 0
+          },
+          {
+            "id": "architectural-entropy",
+            "name": "Architectural Entropy",
+            "score": 100
+          }
+        ],
+        "dominantIssues": [
+          {
+            "type": "ownership-gap",
+            "source": "policy",
+            "severity": "warning",
+            "count": 1,
+            "projects": [
+              "shared-kernel"
+            ],
+            "ruleId": "ownership-presence",
+            "message": "Project shared-kernel has no ownership metadata or CODEOWNERS mapping."
+          }
+        ]
+      }
+    },
+    "recommendations": [
+      {
+        "id": "improve-ownership-coverage",
+        "title": "Improve ownership coverage",
+        "priority": "medium",
+        "reason": "Unowned projects slow down incident response and architectural decision making."
+      }
+    ]
+  }
+}

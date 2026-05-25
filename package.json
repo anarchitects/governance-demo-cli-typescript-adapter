@@ -1,0 +1,23 @@
+{
+  "name": "governance-demo-cli-typescript-adapter",
+  "packageManager": "yarn@4.15.0",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "tsc -b",
+    "clean": "tsc -b --clean && find apps packages -type d -name dist -prune -exec rm -rf {} +",
+    "rebuild": "yarn clean && yarn build",
+    "governance:check": "yarn build && agov check --adapter @demo/governance-adapter-typescript-conventions --root . --profile governance.profile.json",
+    "governance:check:table": "yarn build && agov check --adapter @demo/governance-adapter-typescript-conventions --root . --profile governance.profile.json --format table",
+    "governance:check:json": "yarn build && agov check --adapter @demo/governance-adapter-typescript-conventions --root . --profile governance.profile.json --format json",
+    "governance:debug": "yarn build && agov check --adapter @demo/governance-adapter-typescript-conventions --root . --profile governance.profile.json --format json --output governance-adapter-debug.json",
+    "governance:report": "yarn build && agov check --adapter @demo/governance-adapter-typescript-conventions --root . --profile governance.profile.json --format markdown --output governance-report.md"
+  },
+  "devDependencies": {
+    "@anarchitects/governance-adapter-typescript": "^0.0.4",
+    "@anarchitects/governance-cli": "^0.0.4",
+    "typescript": "~5.9.2"
+  }
+}
