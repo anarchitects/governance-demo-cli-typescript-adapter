@@ -8,6 +8,102 @@
       "root": ".",
       "projects": [
         {
+          "id": "booking-api",
+          "name": "booking-api",
+          "root": "apps/booking-api",
+          "type": "unknown",
+          "tags": [
+            "domain:booking",
+            "layer:interface"
+          ],
+          "domain": "booking",
+          "layer": "interface",
+          "ownership": {
+            "source": "none"
+          },
+          "metadata": {}
+        },
+        {
+          "id": "booking-application",
+          "name": "booking-application",
+          "root": "packages/booking-application",
+          "type": "unknown",
+          "tags": [
+            "domain:booking",
+            "layer:application"
+          ],
+          "domain": "booking",
+          "layer": "application",
+          "ownership": {
+            "source": "none"
+          },
+          "metadata": {}
+        },
+        {
+          "id": "booking-domain",
+          "name": "booking-domain",
+          "root": "packages/booking-domain",
+          "type": "unknown",
+          "tags": [
+            "domain:booking",
+            "layer:domain"
+          ],
+          "domain": "booking",
+          "layer": "domain",
+          "ownership": {
+            "source": "none"
+          },
+          "metadata": {}
+        },
+        {
+          "id": "booking-infrastructure",
+          "name": "booking-infrastructure",
+          "root": "packages/booking-infrastructure",
+          "type": "unknown",
+          "tags": [
+            "domain:booking",
+            "layer:infrastructure"
+          ],
+          "domain": "booking",
+          "layer": "infrastructure",
+          "ownership": {
+            "source": "none"
+          },
+          "metadata": {}
+        },
+        {
+          "id": "booking-interface",
+          "name": "booking-interface",
+          "root": "packages/booking-interface",
+          "type": "unknown",
+          "tags": [
+            "domain:booking",
+            "layer:interface"
+          ],
+          "domain": "booking",
+          "layer": "interface",
+          "ownership": {
+            "source": "none"
+          },
+          "metadata": {}
+        },
+        {
+          "id": "customer-domain",
+          "name": "customer-domain",
+          "root": "packages/customer-domain",
+          "type": "unknown",
+          "tags": [
+            "domain:customer",
+            "layer:domain"
+          ],
+          "domain": "customer",
+          "layer": "domain",
+          "ownership": {
+            "source": "none"
+          },
+          "metadata": {}
+        },
+        {
           "id": "shared-kernel",
           "name": "shared-kernel",
           "root": "packages/shared-kernel",
@@ -24,7 +120,44 @@
           "metadata": {}
         }
       ],
-      "dependencies": []
+      "dependencies": [
+        {
+          "source": "booking-api",
+          "target": "booking-interface",
+          "type": "static",
+          "sourceFile": "apps/booking-api/src/main.ts"
+        },
+        {
+          "source": "booking-application",
+          "target": "booking-domain",
+          "type": "static",
+          "sourceFile": "packages/booking-application/src/index.ts"
+        },
+        {
+          "source": "booking-domain",
+          "target": "shared-kernel",
+          "type": "static",
+          "sourceFile": "packages/booking-domain/src/index.ts"
+        },
+        {
+          "source": "booking-infrastructure",
+          "target": "booking-domain",
+          "type": "static",
+          "sourceFile": "packages/booking-infrastructure/src/index.ts"
+        },
+        {
+          "source": "booking-interface",
+          "target": "booking-application",
+          "type": "static",
+          "sourceFile": "packages/booking-interface/src/index.ts"
+        },
+        {
+          "source": "customer-domain",
+          "target": "shared-kernel",
+          "type": "static",
+          "sourceFile": "packages/customer-domain/src/index.ts"
+        }
+      ]
     },
     "profile": "Anarchitecture TypeScript Workspace Demo",
     "warnings": [],
@@ -47,6 +180,60 @@
       "reactivatedFindings": []
     },
     "violations": [
+      {
+        "id": "booking-api-ownership",
+        "ruleId": "ownership-presence",
+        "project": "booking-api",
+        "severity": "warning",
+        "category": "ownership",
+        "message": "Project booking-api has no ownership metadata or CODEOWNERS mapping.",
+        "recommendation": "Add ownership metadata in project configuration or ensure CODEOWNERS covers the project root."
+      },
+      {
+        "id": "booking-application-ownership",
+        "ruleId": "ownership-presence",
+        "project": "booking-application",
+        "severity": "warning",
+        "category": "ownership",
+        "message": "Project booking-application has no ownership metadata or CODEOWNERS mapping.",
+        "recommendation": "Add ownership metadata in project configuration or ensure CODEOWNERS covers the project root."
+      },
+      {
+        "id": "booking-domain-ownership",
+        "ruleId": "ownership-presence",
+        "project": "booking-domain",
+        "severity": "warning",
+        "category": "ownership",
+        "message": "Project booking-domain has no ownership metadata or CODEOWNERS mapping.",
+        "recommendation": "Add ownership metadata in project configuration or ensure CODEOWNERS covers the project root."
+      },
+      {
+        "id": "booking-infrastructure-ownership",
+        "ruleId": "ownership-presence",
+        "project": "booking-infrastructure",
+        "severity": "warning",
+        "category": "ownership",
+        "message": "Project booking-infrastructure has no ownership metadata or CODEOWNERS mapping.",
+        "recommendation": "Add ownership metadata in project configuration or ensure CODEOWNERS covers the project root."
+      },
+      {
+        "id": "booking-interface-ownership",
+        "ruleId": "ownership-presence",
+        "project": "booking-interface",
+        "severity": "warning",
+        "category": "ownership",
+        "message": "Project booking-interface has no ownership metadata or CODEOWNERS mapping.",
+        "recommendation": "Add ownership metadata in project configuration or ensure CODEOWNERS covers the project root."
+      },
+      {
+        "id": "customer-domain-ownership",
+        "ruleId": "ownership-presence",
+        "project": "customer-domain",
+        "severity": "warning",
+        "category": "ownership",
+        "message": "Project customer-domain has no ownership metadata or CODEOWNERS mapping.",
+        "recommendation": "Add ownership metadata in project configuration or ensure CODEOWNERS covers the project root."
+      },
       {
         "id": "shared-kernel-ownership",
         "ruleId": "ownership-presence",
@@ -71,8 +258,8 @@
         "id": "dependency-complexity",
         "name": "Dependency Complexity",
         "family": "architecture",
-        "value": 0,
-        "score": 100,
+        "value": 0.2143,
+        "score": 79,
         "maxScore": 100,
         "unit": "ratio"
       },
@@ -114,7 +301,7 @@
       }
     ],
     "signalBreakdown": {
-      "total": 1,
+      "total": 7,
       "bySource": [
         {
           "source": "graph",
@@ -126,7 +313,7 @@
         },
         {
           "source": "policy",
-          "count": 1
+          "count": 7
         },
         {
           "source": "extension",
@@ -136,7 +323,7 @@
       "byType": [
         {
           "type": "ownership-gap",
-          "count": 1
+          "count": 7
         }
       ],
       "bySeverity": [
@@ -146,7 +333,7 @@
         },
         {
           "severity": "warning",
-          "count": 1
+          "count": 7
         },
         {
           "severity": "error",
@@ -158,7 +345,7 @@
       "families": [
         {
           "family": "architecture",
-          "score": 100,
+          "score": 90,
           "measurements": [
             {
               "id": "architectural-entropy",
@@ -168,7 +355,7 @@
             {
               "id": "dependency-complexity",
               "name": "Dependency Complexity",
-              "score": 100
+              "score": 79
             }
           ]
         },
@@ -219,6 +406,72 @@
         "severity": "warning",
         "count": 1,
         "projects": [
+          "booking-api"
+        ],
+        "ruleId": "ownership-presence",
+        "message": "Project booking-api has no ownership metadata or CODEOWNERS mapping."
+      },
+      {
+        "type": "ownership-gap",
+        "source": "policy",
+        "severity": "warning",
+        "count": 1,
+        "projects": [
+          "booking-application"
+        ],
+        "ruleId": "ownership-presence",
+        "message": "Project booking-application has no ownership metadata or CODEOWNERS mapping."
+      },
+      {
+        "type": "ownership-gap",
+        "source": "policy",
+        "severity": "warning",
+        "count": 1,
+        "projects": [
+          "booking-domain"
+        ],
+        "ruleId": "ownership-presence",
+        "message": "Project booking-domain has no ownership metadata or CODEOWNERS mapping."
+      },
+      {
+        "type": "ownership-gap",
+        "source": "policy",
+        "severity": "warning",
+        "count": 1,
+        "projects": [
+          "booking-infrastructure"
+        ],
+        "ruleId": "ownership-presence",
+        "message": "Project booking-infrastructure has no ownership metadata or CODEOWNERS mapping."
+      },
+      {
+        "type": "ownership-gap",
+        "source": "policy",
+        "severity": "warning",
+        "count": 1,
+        "projects": [
+          "booking-interface"
+        ],
+        "ruleId": "ownership-presence",
+        "message": "Project booking-interface has no ownership metadata or CODEOWNERS mapping."
+      },
+      {
+        "type": "ownership-gap",
+        "source": "policy",
+        "severity": "warning",
+        "count": 1,
+        "projects": [
+          "customer-domain"
+        ],
+        "ruleId": "ownership-presence",
+        "message": "Project customer-domain has no ownership metadata or CODEOWNERS mapping."
+      },
+      {
+        "type": "ownership-gap",
+        "source": "policy",
+        "severity": "warning",
+        "count": 1,
+        "projects": [
           "shared-kernel"
         ],
         "ruleId": "ownership-presence",
@@ -226,7 +479,7 @@
       }
     ],
     "health": {
-      "score": 67,
+      "score": 63,
       "status": "critical",
       "grade": "D",
       "hotspots": [
@@ -247,7 +500,35 @@
       ],
       "projectHotspots": [
         {
-          "project": "shared-kernel",
+          "project": "booking-api",
+          "count": 1,
+          "dominantIssueTypes": [
+            "ownership-gap"
+          ]
+        },
+        {
+          "project": "booking-application",
+          "count": 1,
+          "dominantIssueTypes": [
+            "ownership-gap"
+          ]
+        },
+        {
+          "project": "booking-domain",
+          "count": 1,
+          "dominantIssueTypes": [
+            "ownership-gap"
+          ]
+        },
+        {
+          "project": "booking-infrastructure",
+          "count": 1,
+          "dominantIssueTypes": [
+            "ownership-gap"
+          ]
+        },
+        {
+          "project": "booking-interface",
           "count": 1,
           "dominantIssueTypes": [
             "ownership-gap"
@@ -255,8 +536,8 @@
         }
       ],
       "explainability": {
-        "summary": "Critical health at 67. Weakest metrics are Documentation Completeness, Ownership Coverage, Architectural Entropy. Dominant issue types are ownership-gap.",
-        "statusReason": "Score 67 is below the warning threshold (70).",
+        "summary": "Critical health at 63. Weakest metrics are Documentation Completeness, Ownership Coverage, Dependency Complexity. Dominant issue types are ownership-gap, ownership-gap, ownership-gap.",
+        "statusReason": "Score 63 is below the warning threshold (70).",
         "weakestMetrics": [
           {
             "id": "documentation-completeness",
@@ -269,9 +550,9 @@
             "score": 0
           },
           {
-            "id": "architectural-entropy",
-            "name": "Architectural Entropy",
-            "score": 100
+            "id": "dependency-complexity",
+            "name": "Dependency Complexity",
+            "score": 79
           }
         ],
         "dominantIssues": [
@@ -281,10 +562,32 @@
             "severity": "warning",
             "count": 1,
             "projects": [
-              "shared-kernel"
+              "booking-api"
             ],
             "ruleId": "ownership-presence",
-            "message": "Project shared-kernel has no ownership metadata or CODEOWNERS mapping."
+            "message": "Project booking-api has no ownership metadata or CODEOWNERS mapping."
+          },
+          {
+            "type": "ownership-gap",
+            "source": "policy",
+            "severity": "warning",
+            "count": 1,
+            "projects": [
+              "booking-application"
+            ],
+            "ruleId": "ownership-presence",
+            "message": "Project booking-application has no ownership metadata or CODEOWNERS mapping."
+          },
+          {
+            "type": "ownership-gap",
+            "source": "policy",
+            "severity": "warning",
+            "count": 1,
+            "projects": [
+              "booking-domain"
+            ],
+            "ruleId": "ownership-presence",
+            "message": "Project booking-domain has no ownership metadata or CODEOWNERS mapping."
           }
         ]
       }

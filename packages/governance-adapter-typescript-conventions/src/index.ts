@@ -4,19 +4,39 @@ export const governanceWorkspaceAdapter = createGovernanceWorkspaceAdapter({
   discoveryConfig: {
     projects: [
       {
-        pattern: 'apps/*-api',
-        name: '{0}-api',
-        tags: ['domain:{0}', 'layer:interface']
+        pattern: 'apps/booking-api',
+        name: 'booking-api',
+        tags: ['domain:booking', 'layer:interface']
+      },
+      {
+        pattern: 'packages/booking-interface',
+        name: 'booking-interface',
+        tags: ['domain:booking', 'layer:interface']
+      },
+      {
+        pattern: 'packages/booking-application',
+        name: 'booking-application',
+        tags: ['domain:booking', 'layer:application']
+      },
+      {
+        pattern: 'packages/booking-domain',
+        name: 'booking-domain',
+        tags: ['domain:booking', 'layer:domain']
+      },
+      {
+        pattern: 'packages/booking-infrastructure',
+        name: 'booking-infrastructure',
+        tags: ['domain:booking', 'layer:infrastructure']
+      },
+      {
+        pattern: 'packages/customer-domain',
+        name: 'customer-domain',
+        tags: ['domain:customer', 'layer:domain']
       },
       {
         pattern: 'packages/shared-kernel',
         name: 'shared-kernel',
         tags: ['domain:shared', 'layer:domain']
-      },
-      {
-        pattern: 'packages/*-*',
-        name: '{0}-{1}',
-        tags: ['domain:{0}', 'layer:{1}']
       }
     ]
   }
